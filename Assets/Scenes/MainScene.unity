@@ -1182,35 +1182,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7554846242568486541, guid: dd291db4b0ed1d54198f414a13ff0940, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1036858167}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd291db4b0ed1d54198f414a13ff0940, type: 3}
---- !u!1 &1036858166 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7554846242568486541, guid: dd291db4b0ed1d54198f414a13ff0940, type: 3}
-  m_PrefabInstance: {fileID: 1036858165}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1036858167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036858166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37775f840965ab468f1677e389becf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
-  lifetime: 15
-  warningTime: 5
-  flashInterval: 0.25
-  warningColor: {r: 0.8396226, g: 0.10693307, b: 0.10693307, a: 0.7529412}
-  ballLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &1991409903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,8 +1507,87 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4344847925116243146, guid: c16cfc81783f8a24bb831ef1b860d979, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4229849000287126517}
+    - targetCorrespondingSourceObject: {fileID: 4344847925116243146, guid: c16cfc81783f8a24bb831ef1b860d979, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4229849000287126516}
   m_SourcePrefab: {fileID: 100100000, guid: c16cfc81783f8a24bb831ef1b860d979, type: 3}
+--- !u!1 &4229849000287126515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4344847925116243146, guid: c16cfc81783f8a24bb831ef1b860d979, type: 3}
+  m_PrefabInstance: {fileID: 4229849000287126514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4229849000287126516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229849000287126515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37775f840965ab468f1677e389becf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
+  lifetime: 10
+  warningTime: 5
+  flashInterval: 0.25
+  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  ballLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!23 &4229849000287126517
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229849000287126515}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &4898360561587587636
 PrefabInstance:
   m_ObjectHideFlags: 0
