@@ -884,8 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a67005ee687d24b84f41ca4bdb46a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformTutorial
-  message: "\u201CSome platforms have a limited lifespan. When the timer runs out,
-    they dissappear.\u201D"
+  message: Some platforms have a limited lifespan. When the timer runs out, they
+    dissappear.
   tutorialText: {fileID: 1230750678}
   displayTime: 7
   ballLayer:
