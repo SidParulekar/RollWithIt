@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlatformController : MonoBehaviour
 {
@@ -9,78 +8,61 @@ public class PlatformController : MonoBehaviour
     public float damping = 0.85f;
     public float gravityPull = 40f;
 
-    private Vector2 tiltInput;
-    private float tiltX;
-    private float tiltZ;
-    private float angularVelocityX;
-    private float angularVelocityZ;
+    protected Vector2 tiltInput;
+    protected float tiltX, tiltZ;
+    protected float angularVelocityX, angularVelocityZ;
 
-    private PlayerInput _playerInput;
-    private Rigidbody rb;
+    protected Rigidbody rb;
 
-    [SerializeField] private LayerMask opponentLayer;
-    private int opponentLayerIndex;
+    [SerializeField] protected LayerMask opponentLayer;
+    protected int opponentLayerIndex;
 
-    [SerializeField] private AudioClip ballThrow;
+    [SerializeField] protected AudioClip ballThrow;
 
-    private void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
-        _playerInput = GetComponent<PlayerInput>();
-        TogglePlayerControl(false);
         opponentLayerIndex = (int)Mathf.Log(opponentLayer.value, 2);
     }
-
-    public void OnTilt(InputAction.CallbackContext context)
+   
+    public void ReceiveInput(Vector2 input)
     {
-        tiltInput = context.ReadValue<Vector2>();
+        tiltInput = input;
+        //Debug.Log("Moving");
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        // Input pushes angular velocity in the pressed direction
         angularVelocityX += tiltInput.y * tiltForce * Time.fixedDeltaTime;
         angularVelocityZ -= tiltInput.x * tiltForce * Time.fixedDeltaTime;
 
-        // Gravity pulls back to flat when no input
         angularVelocityX -= tiltX * gravityPull * Time.fixedDeltaTime;
         angularVelocityZ -= tiltZ * gravityPull * Time.fixedDeltaTime;
 
-        // Damping bleeds momentum over time
         angularVelocityX *= damping;
         angularVelocityZ *= damping;
 
-        // Update angles
         tiltX += angularVelocityX * Time.fixedDeltaTime;
         tiltZ += angularVelocityZ * Time.fixedDeltaTime;
 
-        // Clamp
         tiltX = Mathf.Clamp(tiltX, -maxTiltAngle, maxTiltAngle);
         tiltZ = Mathf.Clamp(tiltZ, -maxTiltAngle, maxTiltAngle);
 
         rb.MoveRotation(Quaternion.Euler(tiltX, 0f, tiltZ));
     }
 
-    private void TogglePlayerControl(bool status)
-    {
-        _playerInput.enabled = status;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == opponentLayerIndex)
-        {
-            TogglePlayerControl(true);
-        }
+        if (other.gameObject.layer != opponentLayerIndex) return;
+
+        PlatformManager.Instance.SetPlatform(this);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == opponentLayerIndex)
-        {
-            TogglePlayerControl(false);            
-            Destroy(gameObject);
-        }
+        if (other.gameObject.layer != opponentLayerIndex) return;
+
+        Destroy(gameObject);
     }
 
     private void OnCollisionExit(Collision collision)
